@@ -1,8 +1,8 @@
 class Vcs < Formula
   desc "Creates video contact sheets (previews) of videos"
   homepage "https://github.com/windix/video-contact-sheet"
-  url "https://github.com/windix/video-contact-sheet/archive/refs/tags/v1.14.0.tar.gz"
-  sha256 "ba65fc75040d656cb99d86e88a30db8742637a48c203e3ae25fce0de80cf4dd5"
+  url "https://github.com/windix/video-contact-sheet/archive/refs/tags/v1.14.1.tar.gz"
+  sha256 "3f23447b6dfe50cf1d2d2d7064ecbfc71d6561e1e280511cd6b49bc4c3ad4e50"
   license "LGPL-2.0-or-later"
   head "https://github.com/windix/video-contact-sheet.git", branch: "master"
 
@@ -35,6 +35,8 @@ class Vcs < Formula
            testpath/"video.mp4"
     assert_path_exists testpath/"video.mp4"
 
+    # vcs <= 1.14.0 exited silently without a usable TERM
+    ENV.delete "TERM"
     system bin/"vcs", "-i", "1", "-o", testpath/"sheet.png", testpath/"video.mp4"
     assert_path_exists testpath/"sheet.png"
   end
