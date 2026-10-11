@@ -6,6 +6,12 @@ class Vcs < Formula
   license "LGPL-2.0-or-later"
   head "https://github.com/windix/video-contact-sheet.git", branch: "master"
 
+  bottle do
+    root_url "https://github.com/windix/homebrew-tap/releases/download/vcs-1.14.1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:  "5bd9912de9c63d0c6d62c23799869784518fc524594b35279bf7f6820bdd516d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "5299fc6c6700dc4ea6eab2f7eed48eadcd4e5b2f63039ef5e5be4ab80b74394f"
+  end
+
   depends_on "docbook" => :build
   depends_on "docbook-xsl" => :build
   depends_on "ffmpeg"
